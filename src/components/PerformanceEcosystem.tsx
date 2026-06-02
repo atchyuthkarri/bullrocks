@@ -84,10 +84,8 @@ const PerformanceEcosystem: React.FC = () => {
         },
       });
 
-      panels.forEach((panel, i) => {
+      panels.forEach((panel) => {
         const titleEl = panel.querySelector('.panel-title');
-        const contentEl = panel.querySelector('.panel-content');
-        const numberEl = panel.querySelector('.panel-number');
 
         gsap.from(titleEl, {
           y: 80,

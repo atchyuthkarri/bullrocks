@@ -9,16 +9,4 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom'],
-          'vendor-gsap': ['gsap'],
-          'vendor-motion': ['framer-motion'],
-          'vendor-lenis': ['lenis'],
-        },
-      },
-    },
-  },
 });

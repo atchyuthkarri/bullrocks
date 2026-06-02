@@ -16,7 +16,6 @@ const Philosophy: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const linesRef = useRef<(HTMLDivElement | null)[]>([]);
   const subRef = useRef<HTMLDivElement>(null);
-  const decorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
