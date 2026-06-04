@@ -69,15 +69,10 @@ const Philosophy: React.FC = () => {
     <section
       ref={sectionRef}
       id="philosophy"
+      className="py-16 px-6 md:py-[120px] md:px-12 flex items-center justify-center relative overflow-hidden"
       style={{
         minHeight: '100vh',
         background: '#050505',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '120px 48px',
-        position: 'relative',
-        overflow: 'hidden',
       }}
     >
       {/* Red glow */}
@@ -97,9 +92,8 @@ const Philosophy: React.FC = () => {
 
       {/* Side label */}
       <div
+        className="hidden md:block absolute left-12 uppercase whitespace-nowrap"
         style={{
-          position: 'absolute',
-          left: '48px',
           top: '50%',
           transform: 'translateY(-50%) rotate(-90deg)',
           transformOrigin: 'center',
@@ -107,8 +101,6 @@ const Philosophy: React.FC = () => {
           fontSize: '10px',
           letterSpacing: '0.4em',
           color: '#D6001C',
-          textTransform: 'uppercase',
-          whiteSpace: 'nowrap',
         }}
       >
         Our Philosophy

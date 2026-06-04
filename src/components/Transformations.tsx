@@ -209,12 +209,8 @@ const Transformations: React.FC = () => {
     <section
       ref={sectionRef}
       id="transformations"
-      style={{
-        background: '#0D0D0D',
-        padding: '120px 48px',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
+      className="py-16 px-6 md:py-[120px] md:px-12 relative overflow-hidden"
+      style={{ background: '#0D0D0D' }}
     >
       {/* Glow */}
       <div
@@ -265,15 +261,7 @@ const Transformations: React.FC = () => {
           {stories.map((story, i) => (
             <div
               key={story.id}
-              className="story-card"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: i % 2 === 0 ? '1fr 1fr' : '1fr 1fr',
-                gap: '2px',
-                background: 'rgba(255,255,255,0.03)',
-                border: '1px solid rgba(255,255,255,0.06)',
-                overflow: 'hidden',
-              }}
+              className="story-card flex flex-col lg:grid lg:grid-cols-2 gap-[2px] bg-white/5 border border-white/5 overflow-hidden"
             >
               {/* Slider */}
               <div style={{ order: i % 2 === 0 ? 0 : 1 }}>
@@ -282,13 +270,9 @@ const Transformations: React.FC = () => {
 
               {/* Info */}
               <div
+                className="p-8 md:p-12 flex flex-col justify-center bg-[#0D0D0D]"
                 style={{
-                  padding: '48px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
                   order: i % 2 === 0 ? 1 : 0,
-                  background: '#0D0D0D',
                 }}
               >
                 <div

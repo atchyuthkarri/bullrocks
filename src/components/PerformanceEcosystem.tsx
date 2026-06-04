@@ -113,15 +113,7 @@ const PerformanceEcosystem: React.FC = () => {
     >
       {/* Section header (visible before scroll) */}
       <div
-        style={{
-          padding: '80px 48px 0',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 20,
-          pointerEvents: 'none',
-        }}
+        className="pt-20 px-6 md:pt-20 md:px-12 absolute inset-x-0 top-0 z-20 pointer-events-none"
       >
         <div
           style={{
@@ -153,16 +145,11 @@ const PerformanceEcosystem: React.FC = () => {
 
             {/* Panel number */}
             <div
-              className="panel-number"
+              className="panel-number absolute top-6 right-6 md:top-12 md:right-12 font-display select-none"
               style={{
-                position: 'absolute',
-                top: '48px',
-                right: '48px',
-                fontFamily: 'Bebas Neue',
                 fontSize: '8rem',
                 color: 'rgba(255,255,255,0.04)',
                 lineHeight: '1',
-                userSelect: 'none',
               }}
             >
               0{i + 1}
@@ -170,13 +157,7 @@ const PerformanceEcosystem: React.FC = () => {
 
             {/* Content */}
             <div
-              className="panel-content"
-              style={{
-                position: 'relative',
-                zIndex: 10,
-                padding: '0 80px',
-                maxWidth: '800px',
-              }}
+              className="panel-content relative z-10 px-6 md:px-20 max-w-[800px]"
             >
               {/* Label */}
               <div
@@ -255,13 +236,8 @@ const PerformanceEcosystem: React.FC = () => {
 
             {/* Decorative vertical line */}
             <div
+              className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 w-[1px] h-[200px]"
               style={{
-                position: 'absolute',
-                left: '48px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                width: '1px',
-                height: '200px',
                 background: `linear-gradient(to bottom, transparent, ${cat.color}, transparent)`,
               }}
             />

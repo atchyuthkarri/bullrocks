@@ -68,16 +68,10 @@ const FinalCTA: React.FC = () => {
     <section
       ref={sectionRef}
       id="cta"
+      className="py-16 px-6 md:py-[120px] md:px-12 flex flex-col items-center justify-center text-center relative overflow-hidden"
       style={{
         minHeight: '100vh',
         background: '#050505',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        padding: '120px 48px',
-        position: 'relative',
-        overflow: 'hidden',
       }}
     >
       {/* Animated background glow */}
@@ -247,12 +241,7 @@ const FinalCTA: React.FC = () => {
 
         {/* Contact info */}
         <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '48px',
-            flexWrap: 'wrap',
-          }}
+          className="flex flex-col sm:flex-row justify-center gap-12 flex-wrap"
         >
           {[
             { label: 'Location', value: 'Hyderabad, India' },

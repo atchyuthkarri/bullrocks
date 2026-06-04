@@ -237,15 +237,7 @@ const Hero: React.FC = () => {
         {/* Loading Progress (visible before loaded) */}
         {!loaded && (
           <div
-            style={{
-              position: 'absolute',
-              bottom: '48px',
-              left: '48px',
-              color: '#8A8A8A',
-              fontSize: '11px',
-              letterSpacing: '0.2em',
-              fontFamily: 'Inter',
-            }}
+            className="absolute bottom-12 left-6 md:left-12 text-[#8A8A8A] text-[11px] tracking-[0.2em] font-inter"
           >
             LOADING FRAMES — {loadProgress}%
           </div>
@@ -400,32 +392,13 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Corner Stats */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '40px',
-            left: '48px',
-            zIndex: 20,
-          }}
-        >
-          <div
-            style={{ fontFamily: 'Inter', fontSize: '10px', letterSpacing: '0.25em', color: '#8A8A8A', textTransform: 'uppercase' }}
-          >
+        <div className="absolute bottom-10 left-6 md:left-12 z-20 hidden sm:block">
+          <div style={{ fontFamily: 'Inter', fontSize: '10px', letterSpacing: '0.25em', color: '#8A8A8A', textTransform: 'uppercase' }}>
             Est. 2018
           </div>
         </div>
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '40px',
-            right: '48px',
-            zIndex: 20,
-            textAlign: 'right',
-          }}
-        >
-          <div
-            style={{ fontFamily: 'Inter', fontSize: '10px', letterSpacing: '0.25em', color: '#8A8A8A', textTransform: 'uppercase' }}
-          >
+        <div className="absolute bottom-10 right-6 md:right-12 z-20 text-right hidden sm:block">
+          <div style={{ fontFamily: 'Inter', fontSize: '10px', letterSpacing: '0.25em', color: '#8A8A8A', textTransform: 'uppercase' }}>
             5000+ Members
           </div>
         </div>

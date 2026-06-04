@@ -66,12 +66,8 @@ const FacilityShowcase: React.FC = () => {
     <section
       ref={sectionRef}
       id="facility"
-      style={{
-        background: '#050505',
-        padding: '120px 48px',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
+      className="py-16 px-6 md:py-[120px] md:px-12 relative overflow-hidden"
+      style={{ background: '#050505' }}
     >
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         {/* Header */}
@@ -117,29 +113,15 @@ const FacilityShowcase: React.FC = () => {
         </div>
 
         {/* Gallery Grid */}
-        <div
-          className="gallery-grid"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gridTemplateRows: 'auto',
-            gap: '4px',
-          }}
-        >
+        <div className="gallery-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
           {galleryItems.map((item, i) => {
             const isLarge = item.size === 'large';
-            const isMedium = item.size === 'medium';
             return (
               <div
                 key={item.id}
-                className="gallery-item parallax-wrap"
+                className={`gallery-item parallax-wrap relative overflow-hidden cursor-pointer ${isLarge ? 'md:col-span-2' : 'col-span-1'}`}
                 style={{
-                  gridColumn: isLarge ? 'span 2' : 'span 1',
-                  gridRow: isLarge || isMedium ? 'span 1' : 'span 1',
                   aspectRatio: isLarge ? '16/9' : '4/3',
-                  overflow: 'hidden',
-                  position: 'relative',
-                  cursor: 'pointer',
                 }}
                 onMouseEnter={e => {
                   const inner = e.currentTarget.querySelector('.gallery-inner') as HTMLElement;

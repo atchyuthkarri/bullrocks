@@ -35,36 +35,18 @@ const Navigation: React.FC = () => {
   return (
     <>
       <div
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 1000,
-          display: 'flex',
-          justifyContent: 'center',
-          padding: scrolled ? '20px 24px' : '32px 48px',
-          transition: 'padding 0.5s cubic-bezier(0.25, 1, 0.5, 1)',
-          pointerEvents: 'none',
-        }}
+        className={`fixed top-0 left-0 right-0 z-[1000] flex justify-center pointer-events-none transition-all duration-500 ${
+          scrolled ? 'py-5 px-4 md:px-6' : 'py-6 px-6 md:py-8 md:px-12'
+        }`}
       >
         <nav
           ref={navRef}
-          style={{
-            pointerEvents: 'auto',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            width: '100%',
-            maxWidth: scrolled ? '1000px' : '1400px',
-            background: scrolled ? 'rgba(5, 5, 5, 0.95)' : 'linear-gradient(180deg, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0) 100%)',
-            backdropFilter: scrolled ? 'blur(32px)' : 'none',
-            border: scrolled ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid transparent',
-            borderRadius: scrolled ? '100px' : '0px',
-            padding: scrolled ? '12px 32px' : '0px',
-            boxShadow: scrolled ? '0 20px 40px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(255,255,255,0.05)' : 'none',
-            transition: 'all 0.6s cubic-bezier(0.25, 1, 0.5, 1)',
-          }}
+          className={`flex items-center justify-between w-full transition-all duration-700 ease-out ${
+            scrolled
+              ? 'max-w-[1000px] bg-black/95 backdrop-blur-2xl border border-white/15 rounded-full py-3 px-6 md:px-8 shadow-[0_20px_40px_rgba(0,0,0,0.4),inset_0_0_0_1px_rgba(255,255,255,0.05)]'
+              : 'max-w-[1400px] bg-gradient-to-b from-black/90 to-transparent border-transparent rounded-none py-0 px-0 shadow-none'
+          }`}
+          style={{ pointerEvents: 'auto' }}
         >
           {/* Logo */}
           <div

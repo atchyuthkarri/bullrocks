@@ -118,12 +118,8 @@ const Membership: React.FC = () => {
     <section
       ref={sectionRef}
       id="membership"
-      style={{
-        background: '#0D0D0D',
-        padding: '120px 48px',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
+      className="py-16 px-6 md:py-[120px] md:px-12 relative overflow-hidden"
+      style={{ background: '#0D0D0D' }}
     >
       {/* Ambient glow */}
       <div
@@ -184,22 +180,13 @@ const Membership: React.FC = () => {
         </div>
 
         {/* Cards */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2px',
-            alignItems: 'start',
-          }}
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-[2px] items-start">
           {plans.map(plan => (
             <div
               key={plan.id}
               id={`plan-${plan.id}`}
-              className={`membership-card ${plan.featured ? 'featured' : ''}`}
+              className={`membership-card p-8 md:px-[44px] md:py-[56px] relative transition-all duration-400 ${plan.featured ? 'featured' : ''}`}
               style={{
-                position: 'relative',
-                padding: '56px 44px',
                 background: plan.featured
                   ? 'linear-gradient(135deg, rgba(214,0,28,0.08), rgba(13,13,13,0.95))'
                   : '#111111',
@@ -209,7 +196,6 @@ const Membership: React.FC = () => {
                 boxShadow: plan.featured
                   ? '0 0 80px rgba(214,0,28,0.15), inset 0 0 80px rgba(214,0,28,0.03)'
                   : 'none',
-                transition: 'all 0.4s ease',
                 transform: plan.featured && hoveredPlan !== plan.id ? 'translateY(-12px)' : 'none',
               }}
               onMouseEnter={() => setHoveredPlan(plan.id)}

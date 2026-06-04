@@ -85,12 +85,10 @@ const WhyBullRocks: React.FC = () => {
     <section
       ref={sectionRef}
       id="why"
+      className="py-16 px-6 md:py-[120px] md:px-12 relative overflow-hidden"
       style={{
         minHeight: '100vh',
         background: '#050505',
-        padding: '120px 48px',
-        position: 'relative',
-        overflow: 'hidden',
       }}
     >
       {/* Ticker */}
@@ -171,24 +169,14 @@ const WhyBullRocks: React.FC = () => {
 
         {/* Stats Grid */}
         <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '2px',
-            background: 'rgba(255,255,255,0.04)',
-            border: '1px solid rgba(255,255,255,0.06)',
-          }}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-[2px] bg-white/5 border border-white/5"
         >
           {stats.map((stat, i) => (
             <div
               key={stat.label}
-              className="stat-card"
+              className="stat-card p-8 md:py-[60px] md:px-[40px] relative transition-colors duration-300"
               style={{
-                padding: '60px 40px',
                 background: '#050505',
-                borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
-                position: 'relative',
-                transition: 'background 0.3s ease',
               }}
               onMouseEnter={e => {
                 (e.currentTarget as HTMLElement).style.background = 'rgba(214,0,28,0.04)';

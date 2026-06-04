@@ -95,12 +95,8 @@ const EliteCoaches: React.FC = () => {
     <section
       ref={sectionRef}
       id="coaches"
-      style={{
-        background: '#050505',
-        padding: '120px 48px',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
+      className="py-16 px-6 md:py-[120px] md:px-12 relative overflow-hidden"
+      style={{ background: '#050505' }}
     >
       {/* Grid lines background */}
       <div
@@ -151,15 +147,7 @@ const EliteCoaches: React.FC = () => {
           {coaches.map((coach, i) => (
             <div
               key={coach.id}
-              className="coach-card"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: i % 2 === 0 ? '400px 1fr' : '1fr 400px',
-                background: '#0D0D0D',
-                border: '1px solid rgba(255,255,255,0.04)',
-                overflow: 'hidden',
-                transition: 'border-color 0.3s ease',
-              }}
+              className={`coach-card flex flex-col lg:grid ${i % 2 === 0 ? 'lg:grid-cols-[400px_1fr]' : 'lg:grid-cols-[1fr_400px]'} bg-[#0D0D0D] border border-white/5 overflow-hidden transition-colors duration-300`}
               onMouseEnter={e => {
                 (e.currentTarget as HTMLElement).style.borderColor = 'rgba(214,0,28,0.3)';
               }}
@@ -169,22 +157,16 @@ const EliteCoaches: React.FC = () => {
             >
               {/* Portrait area */}
               <div
+                className="flex items-center justify-center min-h-[400px] relative overflow-hidden"
                 style={{
                   background: `linear-gradient(135deg, ${coach.gradientFrom}30, ${coach.gradientTo})`,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  minHeight: '400px',
-                  position: 'relative',
                   order: i % 2 === 0 ? 0 : 1,
-                  overflow: 'hidden',
                 }}
               >
                 {/* Background pattern */}
                 <div
+                  className="absolute inset-0 opacity-50"
                   style={{
-                    position: 'absolute',
-                    inset: 0,
                     backgroundImage: `radial-gradient(circle, ${coach.gradientFrom}20 1px, transparent 1px)`,
                     backgroundSize: '30px 30px',
                     opacity: 0.5,
@@ -264,11 +246,8 @@ const EliteCoaches: React.FC = () => {
 
               {/* Content */}
               <div
+                className="p-8 md:p-[60px] flex flex-col justify-center"
                 style={{
-                  padding: '60px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
                   order: i % 2 === 0 ? 1 : 0,
                 }}
               >

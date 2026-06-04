@@ -35,11 +35,10 @@ const Footer: React.FC = () => {
   return (
     <footer
       ref={footerRef}
+      className="py-12 md:pt-20 md:pb-10 overflow-hidden"
       style={{
         background: '#030303',
         borderTop: '1px solid rgba(255,255,255,0.04)',
-        padding: '80px 0 40px',
-        overflow: 'hidden',
       }}
     >
       {/* Massive Scrolling Marquee */}
@@ -70,12 +69,7 @@ const Footer: React.FC = () => {
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 48px' }}>
         {/* Top row */}
         <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr',
-            gap: '48px',
-            marginBottom: '80px',
-          }}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-12 mb-20"
         >
           {/* Brand col */}
           <div>

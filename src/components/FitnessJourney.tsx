@@ -95,12 +95,8 @@ const FitnessJourney: React.FC = () => {
     <section
       ref={sectionRef}
       id="journey"
-      style={{
-        background: '#0D0D0D',
-        padding: '120px 48px',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
+      className="py-16 px-6 md:py-[120px] md:px-12 relative overflow-hidden"
+      style={{ background: '#0D0D0D' }}
     >
       {/* Background text */}
       <div
@@ -171,16 +167,11 @@ const FitnessJourney: React.FC = () => {
             {steps.map((step, i) => (
               <div
                 key={step.id}
-                className="journey-step"
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr auto 1fr',
-                  alignItems: 'center',
-                  gap: '40px',
-                }}
+                className="journey-step flex flex-col md:grid md:grid-cols-[1fr_auto_1fr] items-center gap-6 md:gap-10"
               >
                 {/* Left content */}
                 <div
+                  className={`md:block ${i % 2 === 0 ? 'block' : 'hidden'}`}
                   style={{
                     textAlign: i % 2 === 0 ? 'right' : 'left',
                     order: i % 2 === 0 ? 0 : 2,
@@ -263,6 +254,7 @@ const FitnessJourney: React.FC = () => {
 
                 {/* Right content */}
                 <div
+                  className={`md:block ${i % 2 !== 0 ? 'block' : 'hidden'}`}
                   style={{
                     textAlign: i % 2 === 0 ? 'left' : 'right',
                     order: i % 2 === 0 ? 2 : 0,
