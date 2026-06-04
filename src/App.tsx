@@ -19,6 +19,7 @@ const Transformations = lazy(() => import('./components/Transformations'));
 const EliteCoaches = lazy(() => import('./components/EliteCoaches'));
 const Membership = lazy(() => import('./components/Membership'));
 const FacilityShowcase = lazy(() => import('./components/FacilityShowcase'));
+const ReelsSection = lazy(() => import('./components/ReelsSection'));
 const FitnessJourney = lazy(() => import('./components/FitnessJourney'));
 const FinalCTA = lazy(() => import('./components/FinalCTA'));
 const Footer = lazy(() => import('./components/Footer'));
@@ -109,6 +110,10 @@ function App() {
 
           <Suspense fallback={<div style={{ height: '100vh', background: '#050505' }} />}>
             <FacilityShowcase />
+          </Suspense>
+
+          <Suspense fallback={<div style={{ height: '100vh', background: '#0D0D0D' }} />}>
+            <ReelsSection />
           </Suspense>
 
           <Suspense fallback={<div style={{ height: '100vh', background: '#0D0D0D' }} />}>
