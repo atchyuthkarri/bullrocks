@@ -173,6 +173,8 @@ const Membership: React.FC = () => {
               id={`plan-${plan.id}`}
               className={`membership-card p-8 md:px-[44px] md:py-[56px] relative transition-colors duration-300 ${plan.featured ? 'featured' : ''} ${plan.featured ? 'lg:-mt-3' : ''}`}
               style={{
+                opacity: 1,
+                transform: 'none',
                 background: plan.featured
                   ? 'linear-gradient(135deg, rgba(214,0,28,0.08), rgba(13,13,13,0.95))'
                   : '#111111',
