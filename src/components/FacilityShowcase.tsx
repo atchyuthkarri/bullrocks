@@ -4,13 +4,43 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const galleryItems = [
-  { id: 1, label: 'Power Zone', size: 'large', gradient: 'linear-gradient(135deg, #1a0000 0%, #2a0808 50%, #D6001C15 100%)' },
-  { id: 2, label: 'Cardio Studio', size: 'small', gradient: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)' },
-  { id: 3, label: 'Recovery Suite', size: 'small', gradient: 'linear-gradient(135deg, #0d0d1a 0%, #1a1a2a 100%)' },
-  { id: 4, label: 'Free Weight Area', size: 'medium', gradient: 'linear-gradient(135deg, #100008 0%, #200010 100%)' },
-  { id: 5, label: 'Olympic Platform', size: 'medium', gradient: 'linear-gradient(135deg, #0a0a0a 0%, #FF3B4D15 100%)' },
-  { id: 6, label: 'Sauna & Spa', size: 'small', gradient: 'linear-gradient(135deg, #1a0a00 0%, #2a1000 100%)' },
+interface GalleryItem {
+  id: string;
+  title: string;
+  size: 'small' | 'medium' | 'large';
+  gradient: string;
+  imageUrl: string;
+}
+
+const galleryItems: GalleryItem[] = [
+  {
+    id: '1',
+    title: 'THE MAIN FLOOR',
+    size: 'large',
+    gradient: 'linear-gradient(135deg, rgba(214,0,28,0.2) 0%, rgba(5,5,5,0.9) 100%)',
+    imageUrl: '/images/gym_main_floor.png',
+  },
+  {
+    id: '2',
+    title: 'RECOVERY SUITES',
+    size: 'medium',
+    gradient: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(5,5,5,0.95) 100%)',
+    imageUrl: '/images/gym_recovery_suite.png',
+  },
+  {
+    id: '3',
+    title: 'THE IRON ZONE',
+    size: 'small',
+    gradient: 'linear-gradient(135deg, rgba(255,59,77,0.15) 0%, rgba(5,5,5,0.95) 100%)',
+    imageUrl: '/images/gym_iron_zone.png',
+  },
+  {
+    id: '4',
+    title: 'CARDIO DECK',
+    size: 'medium',
+    gradient: 'linear-gradient(135deg, rgba(138,138,138,0.1) 0%, rgba(5,5,5,0.95) 100%)',
+    imageUrl: '/images/gym_cardio_deck.png',
+  },
 ];
 
 const FacilityShowcase: React.FC = () => {
@@ -136,18 +166,21 @@ const FacilityShowcase: React.FC = () => {
                   if (label) gsap.to(label, { opacity: 0, y: 10, duration: 0.3 });
                 }}
               >
-                {/* Background */}
+                {/* Background Image */}
                 <div
                   className="gallery-inner parallax-inner"
                   style={{
                     position: 'absolute',
                     inset: '-10%',
-                    background: item.gradient,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
                   }}
                 >
+                  <img 
+                    src={item.imageUrl} 
+                    alt={item.title} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                  />
+                  {/* Overlay Gradient */}
+                  <div style={{ position: 'absolute', inset: 0, background: item.gradient, pointerEvents: 'none' }} />
                   {/* Decorative elements */}
                   <div
                     style={{
@@ -219,7 +252,7 @@ const FacilityShowcase: React.FC = () => {
                       letterSpacing: '0.1em',
                     }}
                   >
-                    {item.label}
+                    {item.title}
                   </div>
                 </div>
 

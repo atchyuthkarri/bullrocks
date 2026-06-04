@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -81,7 +81,6 @@ const plans: Plan[] = [
 const Membership: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
-  const [hoveredPlan, setHoveredPlan] = useState<string | null>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -93,19 +92,6 @@ const Membership: React.FC = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top 70%',
-          toggleActions: 'play none none reverse',
-        },
-      });
-
-      gsap.from('.membership-card', {
-        opacity: 0,
-        y: 80,
-        stagger: 0.15,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 60%',
           toggleActions: 'play none none reverse',
         },
       });
@@ -185,7 +171,7 @@ const Membership: React.FC = () => {
             <div
               key={plan.id}
               id={`plan-${plan.id}`}
-              className={`membership-card p-8 md:px-[44px] md:py-[56px] relative transition-all duration-400 ${plan.featured ? 'featured' : ''}`}
+              className={`membership-card p-8 md:px-[44px] md:py-[56px] relative transition-colors duration-300 ${plan.featured ? 'featured' : ''} ${plan.featured ? 'lg:-mt-3' : ''}`}
               style={{
                 background: plan.featured
                   ? 'linear-gradient(135deg, rgba(214,0,28,0.08), rgba(13,13,13,0.95))'
@@ -196,10 +182,7 @@ const Membership: React.FC = () => {
                 boxShadow: plan.featured
                   ? '0 0 80px rgba(214,0,28,0.15), inset 0 0 80px rgba(214,0,28,0.03)'
                   : 'none',
-                transform: plan.featured && hoveredPlan !== plan.id ? 'translateY(-12px)' : 'none',
               }}
-              onMouseEnter={() => setHoveredPlan(plan.id)}
-              onMouseLeave={() => setHoveredPlan(null)}
             >
               {/* Featured badge */}
               {plan.featured && (

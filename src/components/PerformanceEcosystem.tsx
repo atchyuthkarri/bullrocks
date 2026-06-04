@@ -12,6 +12,7 @@ interface Category {
   stats: { label: string; value: string }[];
   color: string;
   bgGradient: string;
+  bgImageUrl: string;
 }
 
 const categories: Category[] = [
@@ -23,6 +24,7 @@ const categories: Category[] = [
     stats: [{ label: 'Power Racks', value: '20+' }, { label: 'Free Weight Area', value: '3000 sq.ft' }],
     color: '#D6001C',
     bgGradient: 'linear-gradient(135deg, rgba(214,0,28,0.12) 0%, transparent 70%)',
+    bgImageUrl: '/images/gym_iron_zone.png',
   },
   {
     id: 'conditioning',
@@ -32,6 +34,7 @@ const categories: Category[] = [
     stats: [{ label: 'Cardio Machines', value: '40+' }, { label: 'Classes / Week', value: '30+' }],
     color: '#FF3B4D',
     bgGradient: 'linear-gradient(135deg, rgba(255,59,77,0.12) 0%, transparent 70%)',
+    bgImageUrl: '/images/gym_cardio_deck.png',
   },
   {
     id: 'recovery',
@@ -41,6 +44,7 @@ const categories: Category[] = [
     stats: [{ label: 'Recovery Suites', value: '5' }, { label: 'Infrared Saunas', value: '2' }],
     color: '#8A8A8A',
     bgGradient: 'linear-gradient(135deg, rgba(138,138,138,0.08) 0%, transparent 70%)',
+    bgImageUrl: '/images/gym_recovery_suite.png',
   },
   {
     id: 'coaching',
@@ -50,6 +54,7 @@ const categories: Category[] = [
     stats: [{ label: 'Expert Coaches', value: '10+' }, { label: 'Avg. Experience', value: '8 Yrs' }],
     color: '#D6001C',
     bgGradient: 'linear-gradient(135deg, rgba(214,0,28,0.12) 0%, transparent 70%)',
+    bgImageUrl: '/images/coach_marcus.png',
   },
   {
     id: 'nutrition',
@@ -59,6 +64,7 @@ const categories: Category[] = [
     stats: [{ label: 'Meal Plans', value: 'Custom' }, { label: 'Dieticians', value: '3' }],
     color: '#FF3B4D',
     bgGradient: 'linear-gradient(135deg, rgba(255,59,77,0.12) 0%, transparent 70%)',
+    bgImageUrl: '/images/gym_nutrition.png',
   },
 ];
 
@@ -71,13 +77,13 @@ const PerformanceEcosystem: React.FC = () => {
       const panels = gsap.utils.toArray<HTMLElement>('.h-panel');
       const totalWidth = (panels.length - 1) * window.innerWidth;
 
-      gsap.to(trackRef.current, {
+      const horizontalTween = gsap.to(trackRef.current, {
         x: -totalWidth,
         ease: 'none',
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top top',
-          end: `+=${totalWidth + window.innerHeight}`,
+          end: `+=${totalWidth}`,
           scrub: 1.5,
           pin: true,
           anticipatePin: 1,
@@ -94,7 +100,7 @@ const PerformanceEcosystem: React.FC = () => {
           ease: 'power3.out',
           scrollTrigger: {
             trigger: panel,
-            containerAnimation: gsap.timeline(), // handled by horizontal
+            containerAnimation: horizontalTween, // handled by horizontal
             start: 'left center',
             toggleActions: 'play none none reverse',
           },
@@ -109,7 +115,7 @@ const PerformanceEcosystem: React.FC = () => {
     <section
       ref={sectionRef}
       id="training"
-      style={{ position: 'relative', background: '#0D0D0D' }}
+      style={{ position: 'relative', background: '#0D0D0D', overflow: 'hidden' }}
     >
       {/* Section header (visible before scroll) */}
       <div
@@ -140,6 +146,18 @@ const PerformanceEcosystem: React.FC = () => {
             className="h-panel"
             style={{ background: '#0D0D0D', borderRight: '1px solid rgba(255,255,255,0.04)' }}
           >
+            {/* Background Image */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                backgroundImage: `url(${cat.bgImageUrl})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                opacity: 0.15,
+                pointerEvents: 'none',
+              }}
+            />
             {/* Background gradient */}
             <div style={{ position: 'absolute', inset: 0, background: cat.bgGradient, pointerEvents: 'none' }} />
 

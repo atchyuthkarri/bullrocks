@@ -15,6 +15,7 @@ interface Coach {
   gradientFrom: string;
   gradientTo: string;
   initials: string;
+  imageUrl: string;
 }
 
 const coaches: Coach[] = [
@@ -29,6 +30,7 @@ const coaches: Coach[] = [
     gradientFrom: '#D6001C',
     gradientTo: '#050505',
     initials: 'RK',
+    imageUrl: '/images/coach_marcus.png',
   },
   {
     id: 2,
@@ -41,6 +43,7 @@ const coaches: Coach[] = [
     gradientFrom: '#FF3B4D',
     gradientTo: '#0D0D0D',
     initials: 'MN',
+    imageUrl: '/images/coach_sarah.png',
   },
   {
     id: 3,
@@ -53,6 +56,7 @@ const coaches: Coach[] = [
     gradientFrom: '#D6001C',
     gradientTo: '#050505',
     initials: 'AS',
+    imageUrl: '/images/coach_david.png',
   },
 ];
 
@@ -195,16 +199,11 @@ const EliteCoaches: React.FC = () => {
                       boxShadow: `0 0 60px ${coach.gradientFrom}30`,
                     }}
                   >
-                    <span
-                      className="font-display"
-                      style={{
-                        fontSize: '4rem',
-                        color: '#ffffff',
-                        letterSpacing: '0.05em',
-                      }}
-                    >
-                      {coach.initials}
-                    </span>
+                    <img 
+                      src={coach.imageUrl} 
+                      alt={coach.name} 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} 
+                    />
                   </div>
                   <div
                     style={{

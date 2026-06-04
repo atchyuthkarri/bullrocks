@@ -15,6 +15,8 @@ interface Story {
   afterLabel: string;
   beforeGradient: string;
   afterGradient: string;
+  beforeImageUrl: string;
+  afterImageUrl: string;
 }
 
 const stories: Story[] = [
@@ -29,6 +31,8 @@ const stories: Story[] = [
     afterLabel: 'After',
     beforeGradient: 'linear-gradient(135deg, #1a1a1a 0%, #2a1a1a 100%)',
     afterGradient: 'linear-gradient(135deg, #1a0a0a 0%, #D6001C 100%)',
+    beforeImageUrl: '/images/james_before.png',
+    afterImageUrl: '/images/james_after.png',
   },
   {
     id: 2,
@@ -40,6 +44,8 @@ const stories: Story[] = [
     afterLabel: 'After',
     beforeGradient: 'linear-gradient(135deg, #1a1a1a 0%, #1a1a2a 100%)',
     afterGradient: 'linear-gradient(135deg, #0a0a1a 0%, #FF3B4D 100%)',
+    beforeImageUrl: '/images/elena_before.png',
+    afterImageUrl: '/images/elena_after.png',
   },
   {
     id: 3,
@@ -52,6 +58,8 @@ const stories: Story[] = [
     afterLabel: 'After',
     beforeGradient: 'linear-gradient(135deg, #111 0%, #222 100%)',
     afterGradient: 'linear-gradient(135deg, #1a0000 0%, #D6001C 100%)',
+    beforeImageUrl: '/images/vikram_before.png',
+    afterImageUrl: '/images/vikram_after.png',
   },
 ];
 
@@ -91,12 +99,15 @@ const BASlider: React.FC<{ story: Story }> = ({ story }) => {
         style={{
           position: 'absolute',
           inset: 0,
-          background: story.afterGradient,
+          backgroundImage: `url(${story.afterImageUrl})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
         }}
       >
+        <div style={{ position: 'absolute', inset: 0, background: story.afterGradient, opacity: 0.3, pointerEvents: 'none' }} />
         <div
           style={{
             fontFamily: 'Bebas Neue',
@@ -129,12 +140,15 @@ const BASlider: React.FC<{ story: Story }> = ({ story }) => {
           position: 'absolute',
           inset: 0,
           clipPath: `inset(0 ${100 - sliderPos}% 0 0)`,
-          background: story.beforeGradient,
+          backgroundImage: `url(${story.beforeImageUrl})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
         }}
       >
+        <div style={{ position: 'absolute', inset: 0, background: story.beforeGradient, opacity: 0.3, pointerEvents: 'none' }} />
         <div
           style={{
             fontFamily: 'Bebas Neue',
